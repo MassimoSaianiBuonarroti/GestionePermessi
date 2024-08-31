@@ -1,19 +1,23 @@
-<!DOCTYPE html>
 <?php
+
+/**
+ *  This file is part of Gestione Permessi
+ *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
+ *  @copyright  (C) 2024 Massimo Saiani
+ *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
+ */
+
 session_start();
+
+// se non è un utente loggato manda alla pagina iniziale
+
 if(!isset($_SESSION["loggato"])){
     header("Location:../index.php");
 }
-else
-    if(($_SESSION["password"]=="12345678")){
-        header("Location:cambiapasswordpa.php");
-    }
-    
-if (($_SESSION["nomeutente"] != "201800" && $_SESSION["password"] != "Staff2019") && ($_SESSION["nomeutente"] != "usertest" && $_SESSION["password"] != "buonarroti2024"))
-{
-    header("Location:../index.php");
-}
+
 ?>
+
+<!DOCTYPE html>
 <html>
 <title>Permessi di uscita</title>
 <meta charset="UTF-8">
@@ -31,9 +35,31 @@ if (($_SESSION["nomeutente"] != "201800" && $_SESSION["password"] != "Staff2019"
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+
+.button {
+        border-collapse collapse;
+        border-top-color rgb(221, 221, 221);
+        border-top-style solid;
+        border-top-width 1px;
+        box-sizing border-box;
+        color rgb(51, 51, 51);
+        display table-cell;
+        font-family Lato, sans-serif;
+        font-size 14px;
+        font-weight 700;
+        height 64.5px;
+        line-height 20px;
+        padding-bottom 8px;
+        padding-left 8px;
+        padding-right 8px;
+        padding-top 8px;
+        text-align left;
+        text-indent 0px;
+        text-size-adjust 100%;
+        background-color: white;
+    }
 </style>
 
-<!-- SCRIPT CHE CONFERMA L'ELIMINAZIONE DI UN COMMERCIALE E DI UN PV DI MASTER E IL PV DI UN COMMERCIALE-->
 <script>
 function confermaAnnulla(nome){
     var stringadata= nome.datarigaannulla.value;
@@ -50,9 +76,7 @@ function confermaAnnulla(nome){
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <form name="logout_admin" action="#" method="POST">
-        <!--<a href="../index.php" class="w3-bar-item w3-button w3-padding-large w3-white">Logout</a>-->
         <button class="w3-bar-item w3-button  w3-padding-large w3-white" type='submit' name='logoutadmin'>LOGOUT</button>
-        <!-- <a class="w3-bar-item w3-button w3-padding-large w3-white" href="../creaPdf.php" target="_new" >CREA PDF</a> -->
         <a class="w3-bar-item w3-button w3-padding-large w3-white" href="pannello_controllo.php">PANNELLO DI CONTROLLO</a>
     </form>
     <?php
@@ -61,24 +85,11 @@ function confermaAnnulla(nome){
         header("Location: ../index.php");
     }
     ?>
-    <!--<form name="creapdf" action="../creaPdf.php" method="POST">-->
-    
-
-    <!--<button class="w3-bar-item w3-button w3-white" type='submit' name='creapdf1'>CREA PDF</button>-->
-    <!--</form>-->
-   
-    
-    <!--<a href="elencomastercompleto.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elenco</a>
-
-    <a href="nuovoCommerciale.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Commerciale</a>
-    <a href="nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo PVR</a>
-    <a href="elencomaster.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cerca</a>-->
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
     <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
-    <a href="../creaPdf.php" target="_new" class="w3-bar-item w3-button w3-padding-large">CREA PDF</a>
     <a href="pannello_controllo.php" class="w3-bar-item w3-button w3-padding-large">PANNELLO DI CONTROLLO</a>
     <!--<a href="nuovoPermesso.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Permesso</a>
     <a href="storico.php" class="w3-bar-item w3-button w3-padding-large">Storico</a>
@@ -126,11 +137,10 @@ function confermaAnnulla(nome){
 
 </div>
 <?php
-include 'accessoDatabase.php';
+
+require_once 'accessoDatabase.php';
 $con= accesso();
             
-
-
 //SPUNTA PERMESSO 
 if(isset($_POST["esito_fatto_no"])){   
     $idrigainfo= $_POST["idrigasel"];                                 
@@ -222,15 +232,19 @@ else{
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,classe";
         $result=mysqli_query($con,$query);
     }
-    
+    ?>
+
+    <?php
     echo '<div style="overflow-x: auto;">';
     echo "<table class='table table-striped'>";
-    echo "<th>STUDENTE</th><th>CLASSE</th><th><form name='ordinaClasse' class='btn btn-link' action='#' method='POST'><button type='submit' class='btn btn-link' name='ordinaora'>ORA</button></form></th><th>GENITORE</th><th>NOTE</th><th>ANNOTAZIONE - DOCENTE</th><th>FATTO</th>";
-    /*if(isset($_POST["ordinaclasse"])){
+    echo "<th>STUDENTE</th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaclasse'>CLASSE</button></form></th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaora'>ORA</button></form></th><th>GENITORE</th><th>NOTE</th><th>ANNOTAZIONE - DOCENTE</th><th>FATTO</th>";
+    if(isset($_POST["ordinaclasse"])){
         
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 ORDER BY data,classe";
         $result=mysqli_query($con,$query);
-    }*/
+        $_SESSION["cosa"]="ordinaora";
+        echo "<div style='font-size:30px'><b>ORDINATE PER CLASSE"."</b></div>";
+    }
     if(isset($_POST["ordinaora"])){
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,orauscita";
         $result=mysqli_query($con,$query);
@@ -277,7 +291,7 @@ else{
         echo "<td>";
         echo $row["note"];                              
         echo "</td>";   
-        
+
         echo "<form name='annotazione' action='#' method='POST'>";  
         echo "<td style='text-align:center'>"; 
         echo "<input type='hidden' name='idrigasel' value='".$row["idPermesso"]."'>";

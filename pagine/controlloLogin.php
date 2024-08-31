@@ -1,5 +1,12 @@
 <?php
 
+/**
+ *  This file is part of Gestione Permessi
+ *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
+ *  @copyright  (C) 2024 Massimo Saiani
+ *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
+ */
+
 session_start();
 
 global $__settings;
@@ -39,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         // verifico se esiste un utente admin con qs credenziali
 
-        $esiste= esiste_utente($username,$password, $con);
+        $esiste_utente= esiste_utente($username,$password, $con);
 
         // esiste un utente con un id>0
 

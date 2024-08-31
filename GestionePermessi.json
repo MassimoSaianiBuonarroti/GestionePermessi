@@ -14,7 +14,7 @@
         "refEmail": "registroelettronico@buonarroti.tn.it",
         "genericMessage": "BUONE VACANZE A TUTTI",
         "imgLogo": "logoMartini.png",
-        "credenzialiMastercom": true,
+        "credenzialiMastercom": false,
         "ulrAPIMastercom": ""
     }
 }
