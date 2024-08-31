@@ -140,7 +140,7 @@ function confermaAnnulla(nome){
 
 require_once 'accessoDatabase.php';
 $con= accesso();
-            
+          
 //SPUNTA PERMESSO 
 if(isset($_POST["esito_fatto_no"])){   
     $idrigainfo= $_POST["idrigasel"];                                 
@@ -209,7 +209,8 @@ else{
     $data_visualizzata= $d."-".$m."-".$Y;
     echo "<div style='font-size:30px'><b>RICHIESTE DI PERMESSO IN DATA: ".$data_visualizzata."</b></div>";
     
-    if(!isset($_SESSION["cosa"])){
+    if  ( (!isset($_SESSION["cosa"])) && (!isset($_POST["ordinaora"])) && (!isset($_POST["ordinaclasse"])) ) 
+    {
         //echo "QUI";
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,classe";
         $result=mysqli_query($con,$query);
@@ -217,7 +218,14 @@ else{
 
     }
     else{
-        $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,orauscita";
+        if ((isset($_SESSION["cosa"]) && ($_SESSION["cosa"]=="ordineClasse")) && (isset($_POST["ordinaclasse"])))
+        {
+            $query= "SELECT * FROM permesso WHERE data='" . $data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,classe";
+        }
+        else
+        {
+            $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,orauscita";
+        }
         $result=mysqli_query($con,$query);
         //echo "<div style='font-size:30px'><b>ORDINATE PER ORA"."</b></div>";
 
@@ -242,9 +250,10 @@ else{
         
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 ORDER BY data,classe";
         $result=mysqli_query($con,$query);
-        $_SESSION["cosa"]="ordinaora";
+        $_SESSION["cosa"]="ordinaclasse";
         echo "<div style='font-size:30px'><b>ORDINATE PER CLASSE"."</b></div>";
     }
+    else
     if(isset($_POST["ordinaora"])){
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,orauscita";
         $result=mysqli_query($con,$query);
@@ -331,10 +340,10 @@ else{
     <!-- Footer -->
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
     <div class="w3-xlarge w3-padding-32">
-        <i><img src="../immagini/logoscuola_icona.png" style="width:70px;height:auto"></i>
+        <i><img src="../immagini/<?php echo $__settings->config->imgLogoQuadrato?>"  style="width:70px;height:auto"></i>
         
     </div>
-    <p>© 2024 ITT Buonarroti - Trento. Tutti i diritti riservati. </p>
+    <p style="font-size:14px"><strong><?php echo $__software_copyright ?></strong></p>
     </footer>
 
     <script>

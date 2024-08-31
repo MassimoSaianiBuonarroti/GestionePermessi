@@ -8,6 +8,7 @@
  */
 
 session_start();
+ob_start();
 
 global $__settings;
 
@@ -43,13 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $username= $_POST["nomeutente"];
         $password= $_POST["password"];
-
+        //echo $username;
+        //echo $password;
+       
         // verifico se esiste un utente admin con qs credenziali
 
         $esiste_utente= esiste_utente($username,$password, $con);
 
         // esiste un utente con un id>0
-
         if($esiste_utente>0) // esiste utente admin
         {           
             $_SESSION["nomeutente"]= $username;//$username;
@@ -57,97 +59,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION["loggato"]= "si";
             $_SESSION["idutente"]= $esiste_utente;
             $_SESSION["ruolo"]= "admin";
-            header("Location:frontoffice.php");
+    
+            header("Location: frontoffice.php");
         }
         
-        // se non è un admin controllo se è un genitore
-
-        if ($__settings->config->credenzialiMastercom == true)
-        // se Mastercom è abilitato
-        {
-            // verifico se il nome utente esiste nel database
-            $esiste_login= esiste_login($username,$password, $con, false);
-        
-            if($esiste_login>0)
-            {
-
-                $curl = curl_init();
-            
-                curl_setopt_array($curl, [
-                CURLOPT_URL => "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php?form_user=" . $username . "&form_password=" . $password,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_POSTFIELDS => "",
-                CURLOPT_COOKIE => "PHPSESSID=b8gdo8db857lfrjrdnu8pmtt16",
-                CURLOPT_HTTPHEADER => [
-                    "User-Agent: insomnia/9.2.0"
-                ],
-                ]);
-            
-                $response = curl_exec($curl);
-                $err = curl_error($curl);
-            
-                curl_close($curl);
-            
-                if ($err) 
-                // c'è stato un errore nella richiesta
-                {
-                        $_SESSION["loggato"]= "no";
-                        header("Location:../index.php");
-                } 
-                else 
-                {
-                    $array = json_decode($response, true);
-                    if ($array["auth"] == false)
-                    // autenticazione KO
-                    {
-                        $_SESSION["loggato"]= "no";
-                        header("Location: ../index.php");
-                    }
-                    else
-                    // autenticazione OK
-                    {
-                        $_SESSION["nomeutente"]= $username;//$username;
-                        $_SESSION["password"]=$password;
-                        $_SESSION["loggato"]= "si";
-                        $_SESSION["idutente"]= $esiste_login;
-                        $_SESSION["ruolo"]= "genitore";
-                        header("Location: indexLogout.php");
-                    }
-                }
-            } 
-            else
-            // non esiste username nel database
-            {
-                $_SESSION["loggato"]= "no";
-                header("Location: ../index.php");
-            }   
-        }
         else
-        // Mastercom non è attivo - usiamo la password del database
         {
-            // verifico se il nome utente esiste nel database
-            $esiste_login= esiste_login($username,$password, $con, true);
-        
-            if($esiste_login>0)
+
+            // se non è un admin controllo se è un genitore
+
+            if ($__settings->config->credenzialiMastercom == true)
+            // se Mastercom è abilitato
             {
-                $_SESSION["nomeutente"]= $username;//$username;
-                $_SESSION["password"]=$password;
-                $_SESSION["loggato"]= "si";
-                $_SESSION["idutente"]= $esiste_login;
-                $_SESSION["ruolo"]= "genitore";
-                header("Location: indexLogout.php");
+                // verifico se il nome utente esiste nel database
+                $esiste_login= esiste_login($username,$password, $con, false);
+            
+                if($esiste_login>0)
+                {
+
+                    $curl = curl_init();
+                
+                    curl_setopt_array($curl, [
+                    CURLOPT_URL => "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php?form_user=" . $username . "&form_password=" . $password,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => "",
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => "GET",
+                    CURLOPT_POSTFIELDS => "",
+                    CURLOPT_COOKIE => "PHPSESSID=b8gdo8db857lfrjrdnu8pmtt16",
+                    CURLOPT_HTTPHEADER => [
+                        "User-Agent: insomnia/9.2.0"
+                    ],
+                    ]);
+                
+                    $response = curl_exec($curl);
+                    $err = curl_error($curl);
+                
+                    curl_close($curl);
+                
+                    if ($err) 
+                    // c'è stato un errore nella richiesta
+                    {
+                            $_SESSION["loggato"]= "no";
+                            header("Location:../index.php");
+                    } 
+                    else 
+                    {
+                        $array = json_decode($response, true);
+                        if ($array["auth"] == false)
+                        // autenticazione KO
+                        {
+                            $_SESSION["loggato"]= "no";
+                            header("Location: ../index.php");
+                        }
+                        else
+                        // autenticazione OK
+                        {
+                            $_SESSION["nomeutente"]= $username;//$username;
+                            $_SESSION["password"]=$password;
+                            $_SESSION["loggato"]= "si";
+                            $_SESSION["idutente"]= $esiste_login;
+                            $_SESSION["ruolo"]= "genitore";
+                            header("Location: indexLogout.php");
+                        }
+                    }
+                } 
+                else
+                // non esiste username nel database
+                {
+                    $_SESSION["loggato"]= "no";
+                    header("Location: ../index.php");
+                }   
             }
             else
-            // non esiste username nel database o password sbagliata
+            // Mastercom non è attivo - usiamo la password del database
             {
-                $_SESSION["loggato"]= "no";
-                header("Location: ../index.php");
-            }   
+                // verifico se il nome utente esiste nel database
+                $esiste_login= esiste_login($username,$password, $con, true);
+            
+                if($esiste_login>0)
+                {
+                    $_SESSION["nomeutente"]= $username;//$username;
+                    $_SESSION["password"]=$password;
+                    $_SESSION["loggato"]= "si";
+                    $_SESSION["idutente"]= $esiste_login;
+                    $_SESSION["ruolo"]= "genitore";
+                    header("Location: indexLogout.php");
+                }
+                else
+                // non esiste username nel database o password sbagliata
+                {
+                    $_SESSION["loggato"]= "no";
+                    header("Location: ../index.php");
+                }   
+            }
         }
     }
 }
@@ -190,7 +197,6 @@ function esiste_login($username,$password,$con,$mastercom){
     else
     // controllo se esiste usedid e password
     {
-        
         $pass= md5($pass);
         $stringa= "SELECT * FROM login WHERE nomeutente='$user' AND password='$pass'";
     }

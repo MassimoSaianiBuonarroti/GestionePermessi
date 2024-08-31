@@ -1,8 +1,14 @@
 <html>
 <head>
     <?php
-    //ob_start (); 
+    ob_start (); 
     session_start();
+
+    echo "-" . $_SESSION["nomeutente"];
+    echo "-" . $_SESSION["password"];
+    echo "-" . $_SESSION["loggato"];
+    echo "-" . $_SESSION["idutente"];
+    echo "-" . $_SESSION["ruolo"];
 
     require_once 'accessoDatabase.php';
     $con= accesso();
@@ -45,7 +51,12 @@
                         <div class="adatta_testo">dalle ore <?php echo $_SESSION["permessi_ora_inizio_stringa"];?> del giorno precedente alle ore <?php echo $_SESSION["permessi_ora_fine_stringa"];?> del giorno del permesso</div>
                         <br>
                         <div class="adatta_testo"><b>Credenziali:</b></div>
-                        <div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>
+                        <?php
+                        if ($__settings->config->credenzialiMastercom == true)
+                        {
+                            echo '<div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>';
+                        }
+                        ?>
                         <!--<div class="adatta_testo"><b>Giustificazioni:</b></div> 
                         <div class="adatta_testo">dalle ore <?php echo $_SESSION["giustificazioni_ora_inizio_stringa"];?> alle ore <?php echo $_SESSION["giustificazioni_ora_fine_stringa"];?> <br>Per favorire il controllo della Segreteria Didattica e tutelare la salute di tutti, si prega di giustificare congiuntamente al rientro a scuola</div>-->
                         <br>
