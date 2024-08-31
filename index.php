@@ -1,14 +1,3 @@
-<?php
-
-/**
- *  This file is part of Gestione Permessi
- *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
- *  @copyright  (C) 2024 Massimo Saiani
- *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
- */
-
-?>
-
 <!DOCTYPE html>
 <html>
 <title>Permessi di uscita</title>
@@ -35,10 +24,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <!--<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="pagine\nuovoCommerciale.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Commerciale</a>
+    <a href="pagine\nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Punto Vendita</a>
+    -->
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+   <!-- <a href="pagine\nuovoCommerciale.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Commerciale</a>
+    <a href="pagine\nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Punto Vendita</a>
+    -->
   </div>
 </div>
 
@@ -49,14 +45,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
+
+    
+    
     
 <?php             
 session_start();
 if(isset($_SESSION["loggato"]) && $_SESSION["loggato"]=="si"){
   header("Location:pagine/frontoffice.php");
+//  header("Location:pagine/indexLogout.php");
 }
 else{
-  header("Location: pagine/indexLogin.php");
+    header("Location: pagine/indexLogin.php");
 }
 ?>
   
