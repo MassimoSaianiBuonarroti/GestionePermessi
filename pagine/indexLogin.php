@@ -7,15 +7,19 @@
  *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
  */
 
- require_once __DIR__ . '/load_settings.php';
+session_start();
+
+require_once __DIR__ . '/load_settings.php';
+require_once __DIR__ . './impostazioni.php';
+require_once __DIR__ . '../version.php';
+
+global $settings;
 
 ?>
 
 <html>
 <head>
     <?php
-    session_start();
-    include "impostazioni.php";
 
     if(isset($_SESSION["loggato"])){
         if($_SESSION["loggato"]=="no"){
@@ -38,7 +42,7 @@
             <div class="col-lg-6 ">
                 <div class="sidenav">
                     <div class="login-main-text">
-                        <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/Buonarroti_Logo_Bianco.png" ></h2>
+                        <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/<?php echo $__settings->config->imgLogoBianco?>" ></h2>
                         <br>
                         <h3 class="adatta_testo">PERMESSI DI USCITA</h3>
                         
@@ -47,9 +51,11 @@
                         <div class="adatta_testo">dalle ore <?php echo $_SESSION["permessi_ora_inizio_stringa"];?> del giorno precedente alle ore <?php echo $_SESSION["permessi_ora_fine_stringa"];?> del giorno del permesso</div>
                         <br>
                         <div class="adatta_testo"><b>Credenziali:</b></div>
-                        <div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>
-                        <!--<div class="adatta_testo"><b>Giustificazioni:</b></div> 
-                        <div class="adatta_testo">dalle ore <?php echo $_SESSION["giustificazioni_ora_inizio_stringa"];?> alle ore <?php echo $_SESSION["giustificazioni_ora_fine_stringa"];?> <br>Per favorire il controllo della Segreteria Didattica e tutelare la salute di tutti, si prega di giustificare congiuntamente al rientro a scuola</div>-->
+                        <?php
+                        if ($__settings->config->credenzialiMastercom == true)
+                        {
+                            <div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>
+                        }
                         <br>
                         <div class="adatta_testo"><u>Ottimizzato per Google Chrome</u></div>
                     </div>
@@ -71,12 +77,12 @@
                         </form>
                         <br><br>
                         <b></b><p style="color:red;font-size:20px"></p></b>
-                        <b><p style="color:red;font-size:20px">BUONE VACANZE A TUTTI</p></b>
+                        <b><p style="color:red;font-size:20px"><?php echo $settings->config->genericMessage ?></p></b>
                         <br><br>
                         <div>Dimenticata la password?</div>
-                        <div>Inviare una email a <b><a href="mailto:registroelettronico@buonarroti.tn.it">registroelettronico@buonarroti.tn.it</a></b></div>
+                        <div>Inviare una email a <b><a href="mailto:<?php echo $settings->config->refEmail ?>"><?php echo $settings->config->refEmail ?></a></b></div>
                         <br>
-                        <p style="font-size:14px">© 2024 ITT Buonarroti - Trento. Tutti i diritti riservati.</p>
+                        <p style="font-size:14px"><?php echo $__software_copyright ?></p>
                     </div>
                 </div>
             </div>

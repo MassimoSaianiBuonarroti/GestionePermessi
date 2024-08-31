@@ -10,6 +10,11 @@
         "annoScolastico": "a.s. 2024/2025",
         "permessiOraInizio": "17:00",
         "permessiOraFine": "09:00",
-        "limitaOrarioPermessi": true
+        "limitaOrarioPermessi": true,
+        "refEmail": "registroelettronico@buonarroti.tn.it",
+        "genericMessage": "BUONE VACANZE A TUTTI",
+        "imgLogoBianco": "Buonarroti_Logo_Bianco.png",
+        "credenzialiMastercom": true,
+        "ulrAPIMastercom": ""
     }
 }
