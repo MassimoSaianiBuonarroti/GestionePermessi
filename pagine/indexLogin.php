@@ -1,3 +1,16 @@
+<?php
+
+/**
+ *  This file is part of Gestione Permessi
+ *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
+ *  @copyright  (C) 2024 Massimo Saiani
+ *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
+ */
+
+ require_once __DIR__ . '/load_settings.php';
+
+?>
+
 <html>
 <head>
     <?php
@@ -14,11 +27,10 @@
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- CSS only -->
     <link href="../css/login_new.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
+    <link rel="icon" type="image/x-icon" href="../immagini/favicon.ico">
 </head>
 <body>
     <div class="container-fluid">

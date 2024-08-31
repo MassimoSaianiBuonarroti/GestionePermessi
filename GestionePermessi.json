@@ -1,0 +1,15 @@
+{
+    "name": "GestionePermessi",
+    "db": {
+        "host": "81.88.52.217", 
+        "user": "ct2pylmx_permess",
+        "password": "T2m^6yO(C3^k",
+        "database": "ct2pylmx_gestionepermessi"
+    },
+    "config": {
+        "annoScolastico": "a.s. 2024/2025",
+        "permessiOraInizio": "17:00",
+        "permessiOraFine": "09:00",
+        "limitaOrarioPermessi": true
+    }
+}

@@ -1,15 +1,19 @@
 <?php
 
-//session_start();
+require_once __DIR__ . '/load_settings.php';
 
-//FUNZIONE PER CONNETTERSI AL DATABASE
+//funzioner per connettersi al database
 function accesso(){
-$dbHost= "81.88.52.217";//"185.2.4.134";//"localhost";
-$dbName= "ct2pylmx_gestionepermessi";//"gestionepermessi";
-$dbUser= "ct2pylmx_permess";//"root";
-$dbPassword= "T2m^6yO(C3^k";//"";
+
+global $__settings;
+
+$dbHost = $__settings->db->host;
+$dbName= $__settings->db->database;
+$dbUser= $__settings->db->user;
+$dbPassword= $__settings->db->password;
 
 $connessione= mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
+
 if(!$connessione){
     die("Connessione fallita: ".mysqli_error($connessione));
 }

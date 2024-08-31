@@ -1,36 +1,42 @@
 <?php
-include 'accessoDatabase.php';
-$con= accesso();
-$stringa= "SELECT * FROM impostazioni";
-$result= mysqli_query($con,$stringa);
-if(mysqli_num_rows($result)>0){
-    $row= mysqli_fetch_array($result);
+
+require_once 'accessoDatabase.php';
+$con = accesso();
+
     /*
     Per modificare il testo visualizzato sulla homepage.
     */
-    $_SESSION["anno_scolastico"]= "a.s. 2024/2025";//$row["anno_scolastico"];
-    $_SESSION["permessi_ora_inizio_stringa"]= "17:00";//($row["permessi_ora_inizio"]+2);
-    $_SESSION["permessi_ora_fine_stringa"]= "9:00";//$row["permessi_ora_fine"]+2;
-    $_SESSION["giustificazioni_ora_inizio_stringa"]= "17:00";//($row["giustificazioni_ora_inizio"]+2);
-    $_SESSION["giustificazioni_ora_fine_stringa"]= "7:00";//$row["giustificazioni_ora_fine"]+2;
-    
-    //Dati per i controlli PERMESSI
-    /*
-    Per ora legale: <7 >15 (estate)
-    Per ora solare <8  >16 (inverno)
-    
-    Rispettare il formato dell'orario
-    */
-    $_SESSION["permessi_ora_inizio"]= "15:00:00";//$row["permessi_ora_inizio"];
-    $_SESSION["permessi_ora_fine"]= "07:00:00";//$row["permessi_ora_fine"];
-    
-    //Dati per i controlli GIUSTIFICAZIONI
-    /*
-    Per ora legale: <5 >15 (estate)
-    Per ora solare <6  >16 (inverno)
-    */
-    
-    $_SESSION["giustificazioni_ora_inizio"]= "15:00:00";//$row["giustificazioni_ora_inizio"];
-    $_SESSION["giustificazioni_ora_fine"]= "05:00:00";//06//$row["giustificazioni_ora_fine"];
-}
+    $_SESSION["anno_scolastico"]= $__settings->config->anno_scolastico;
+    $_SESSION["permessi_ora_inizio_stringa"]= $__settings->config->permessiOraInizio;
+    $_SESSION["permessi_ora_fine_stringa"]= $__settings->config->permessiOraFine;
+    $_SESSION["limita_orario_permessi"]= $__settings->config->limitaOrarioPermessi;
+ 
+    // Create a DateTime object for a specific date and time
+    $dateTime = new DateTime("");
+    echo $dateTime->format('Y-m-d H:i:s');
+
+    // Check Daylight Saving Time
+    $isDST = $dateTime->format("I");
+    echo $isDST;
+
+    // 1 ora legale (Estate)
+    // 0 ora solare (Inverno)
+
+    if ($isDST == 1)
+    {
+      $inizio = new DateTime($__settings->config->permessiOraInizio);
+      echo $inizio->format('Y-m-d H:i:s');
+      $fine = new DateTime($__settings->config->permessiOraFine);
+      echo $fine->format('Y-m-d H:i:s');
+      $inizio->add(new DateInterval('PT1H'));
+      echo $inizio->format('Y-m-d H:i:s');
+      $fine->add(new DateInterval('PT1H'));
+      echo $fine->format('Y-m-d H:i:s');
+  
+      $_SESSION["permessi_ora_inizio"] = $inizio->format("H:i");
+      $_SESSION["permessi_ora_fine"] = $fine->format("H:i");
+      echo $inizio->format("H:i");
+      echo $fine->format("H:i");
+    }
+
 ?>
