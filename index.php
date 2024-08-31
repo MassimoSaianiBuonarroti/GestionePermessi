@@ -1,3 +1,14 @@
+<?php
+
+/**
+ *  This file is part of Gestione Permessi
+ *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
+ *  @copyright  (C) 2024 Massimo Saiani
+ *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
+ */
+
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Permessi di uscita</title>
@@ -18,36 +29,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 
-<body>
-
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <!--<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="pagine\nuovoCommerciale.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Commerciale</a>
-    <a href="pagine\nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Punto Vendita</a>
-    -->
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-   <!-- <a href="pagine\nuovoCommerciale.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Commerciale</a>
-    <a href="pagine\nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Punto Vendita</a>
-    -->
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:40px 16px">
-  <h1 class="w3-margin w3-jumbo"></h1>
-</header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-
-    
-    
+<body>  
     
 <?php             
 session_start();
@@ -60,29 +42,5 @@ else{
 }
 ?>
   
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-apple"></i>
-    
- </div>
- <p>Created by L&G</p>
-</footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
 </body>
 </html>
