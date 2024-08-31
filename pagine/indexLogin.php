@@ -9,9 +9,9 @@
 
 session_start();
 
-require_once __DIR__ . '/load_settings.php';
-require_once __DIR__ . './impostazioni.php';
-require_once __DIR__ . '../version.php';
+require_once 'load_settings.php';
+require_once 'impostazioni.php';
+require_once '../version.php';
 
 global $settings;
 
@@ -42,7 +42,7 @@ global $settings;
             <div class="col-lg-6 ">
                 <div class="sidenav">
                     <div class="login-main-text">
-                        <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/<?php echo $__settings->config->imgLogoBianco?>" ></h2>
+                        <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/<?php echo $__settings->config->imgLogo?>" ></h2>
                         <br>
                         <h3 class="adatta_testo">PERMESSI DI USCITA</h3>
                         
@@ -54,8 +54,9 @@ global $settings;
                         <?php
                         if ($__settings->config->credenzialiMastercom == true)
                         {
-                            <div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>
+                            echo '<div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>';
                         }
+                        ?>
                         <br>
                         <div class="adatta_testo"><u>Ottimizzato per Google Chrome</u></div>
                     </div>
@@ -77,12 +78,13 @@ global $settings;
                         </form>
                         <br><br>
                         <b></b><p style="color:red;font-size:20px"></p></b>
-                        <b><p style="color:red;font-size:20px"><?php echo $settings->config->genericMessage ?></p></b>
+                        <b><p style="color:red;font-size:20px"><?php echo $__settings->config->genericMessage ?></p></b>
                         <br><br>
                         <div>Dimenticata la password?</div>
-                        <div>Inviare una email a <b><a href="mailto:<?php echo $settings->config->refEmail ?>"><?php echo $settings->config->refEmail ?></a></b></div>
+                        <div>Inviare una email a <b><a href="mailto:<?php echo $__settings->config->refEmail ?>"><?php echo $__settings->config->refEmail ?></a></b></div>
                         <br>
-                        <p style="font-size:14px"><?php echo $__software_copyright ?></p>
+                        <br>
+                        <p style="font-size:14px"><strong><?php echo $__software_copyright ?></strong></p>
                     </div>
                 </div>
             </div>
