@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $_SESSION["nomeutente"]= $username;//$username;
             $_SESSION["password"]=$password;
             $_SESSION["loggato"]= "si";
-            $_SESSION["idutente"]= $esiste;
+            $_SESSION["idutente"]= $esiste_utente;
             $_SESSION["ruolo"]= "admin";
             header("Location:frontoffice.php");
         }
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         // se Mastercom è abilitato
         {
             // verifico se il nome utente esiste nel database
-            $esiste_login= esiste_utente($username,$password, $con, false);
+            $esiste_login= esiste_login($username,$password, $con, false);
         
             if($esiste_login>0)
             {
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                         $_SESSION["nomeutente"]= $username;//$username;
                         $_SESSION["password"]=$password;
                         $_SESSION["loggato"]= "si";
-                        $_SESSION["idutente"]= $esiste;
+                        $_SESSION["idutente"]= $esiste_login;
                         $_SESSION["ruolo"]= "genitore";
                         header("Location: indexLogout.php");
                     }
@@ -131,17 +131,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         // Mastercom non è attivo - usiamo la password del database
         {
             // verifico se il nome utente esiste nel database
-            $esiste_login= esiste_utente($username,$password, $con, true);
+            $esiste_login= esiste_login($username,$password, $con, true);
         
             if($esiste_login>0)
             {
                 $_SESSION["nomeutente"]= $username;//$username;
                 $_SESSION["password"]=$password;
                 $_SESSION["loggato"]= "si";
-                $_SESSION["idutente"]= $esiste;
+                $_SESSION["idutente"]= $esiste_login;
                 $_SESSION["ruolo"]= "genitore";
                 header("Location: indexLogout.php");
             }
+            else
+            // non esiste username nel database o password sbagliata
+            {
+                $_SESSION["loggato"]= "no";
+                header("Location: ../index.php");
+            }   
         }
     }
 }
@@ -159,7 +165,7 @@ function esiste_utente($username,$password,$con){
 
     $pass= md5($pass);
     $stringa= "SELECT * FROM utente WHERE nomeutente='$user' AND password='$pass'";
-    //echo $stringa;
+   
     $result= mysqli_query($con,$stringa);
         
     if(mysqli_num_rows($result)>0){
@@ -184,6 +190,8 @@ function esiste_login($username,$password,$con,$mastercom){
     else
     // controllo se esiste usedid e password
     {
+        
+        $pass= md5($pass);
         $stringa= "SELECT * FROM login WHERE nomeutente='$user' AND password='$pass'";
     }
 

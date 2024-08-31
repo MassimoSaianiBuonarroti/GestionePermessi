@@ -1,9 +1,11 @@
 <html>
 <head>
     <?php
-    ob_start (); 
+    //ob_start (); 
     session_start();
-    include "impostazioni.php";
+
+    require_once 'accessoDatabase.php';
+    $con= accesso();
 
     require_once('browser.php');
     $browser = new Browser();
@@ -24,6 +26,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- CSS only -->
     <link href="../css/login_new.css" rel="stylesheet"  >
+    <link rel="icon" type="image/x-icon" href="../immagini/favicon.ico">
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -34,7 +37,7 @@
             <div class="col-lg-6 ">
                 <div class="sidenav">
                     <div class="login-main-text">
-                        <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/Buonarroti_Logo_Bianco.png" ></h2>
+                    <h2 class="w3-margin w3-jumbo"><img class="schermo_intero" src="../immagini/<?php echo $__settings->config->imgLogo?>" ></h2>
                         <br>
                         <h3 class="adatta_testo">PERMESSI DI USCITA </h3>
                         <p class="adatta_testo"><?php echo $_SESSION["anno_scolastico"];?></p>
@@ -59,6 +62,8 @@
                             //include 'accessoDatabase.php';
                             //$con= accesso();
                             $query= "SELECT * FROM login WHERE idUtente=".$_SESSION["idutente"];
+                            //echo $query;
+                            //die();
                             $result=mysqli_query($con,$query);   
                             if(mysqli_num_rows($result)>0){
                                 $row= mysqli_fetch_array($result);
@@ -86,7 +91,7 @@
                         ?>
                         <br><br>
                         <button type="button" class='btn btn-primary btn-block' onclick="window.location.href='storico.php'">STORICO PERMESSI</button>
-                        <hr>
+                        
                         <?php
                         /*if( $browser->getBrowser() != Browser::BROWSER_IE && $browser->getBrowser() != Browser::BROWSER_SAFARI){
                                 //07
@@ -103,10 +108,10 @@
                         ?>
                         <!--<br><br>
                         <button type="button" class='btn btn-primary btn-block' onclick="window.location.href='storicogiustificazione.php'">STORICO GIUSTIFICAZIONI</button>-->
-                        <hr>
-                        <!-- <br><br>
+                        
+                        <br><br>
                         <button type="button" class='btn btn-info btn-block' onclick="window.location.href='cambiapassword.php'">CAMBIA PASSWORD</button>
-                        <br><br> -->
+                        <br><br> 
                         <button type="submit" class="btn btn-warning btn-block"  name="logout">LOGOUT</button>            
                         </form>
                         <?php
@@ -117,7 +122,8 @@
                             }
                         ?>
                         <br>
-                        <p style="font-size:14px">© 2024 ITT Buonarroti - Trento. Tutti i diritti riservati.</p>
+                        <br>
+                        <p style="font-size:14px"><strong><?php echo $__software_copyright ?></strong></p>
                     </div>
                 </div>
             </div>

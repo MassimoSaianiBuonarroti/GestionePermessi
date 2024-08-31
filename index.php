@@ -27,12 +27,22 @@
 
   <?php
   session_start();
-  if (isset($_SESSION["loggato"]) && $_SESSION["loggato"] == "si") {
-    header("Location:pagine/frontoffice.php");
-  } else {
+  if (isset($_SESSION["loggato"]) && $_SESSION["loggato"] == "si") 
+  {
+    if ($_SESSION["ruolo"] == "admin")
+    {
+      header("Location:pagine/frontoffice.php");
+    } 
+    else 
+    {
+      header("Location: pagine/indexLogout.php");
+    }
+  }
+  else 
+  {
     header("Location: pagine/indexLogin.php");
   }
-  ?>
+?>
 
 </body>
 

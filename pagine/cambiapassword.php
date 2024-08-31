@@ -56,7 +56,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="../index.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
     <!--<a href="elencomastercompleto.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Elenco</a>
     <a href="nuovoCommerciale.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo Commerciale</a>
     <a href="nuovoPuntoVendita.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Nuovo PVR</a>
@@ -65,7 +65,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="nuovoPermesso.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Permesso</a>
     <a href="storico.php" class="w3-bar-item w3-button w3-padding-large">Storico</a>
     <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>
@@ -121,10 +121,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
-    <i><img src="../immagini/logoscuola_icona.png" style="width:70px;height:auto"></i>
+    <i><img src="../immagini/<?php echo $__settings->config->imgLogoQuadrato?>" style="width:70px;height:auto"></i>
     
  </div>
- <p>© 2024 ITT Buonarroti - Trento. Tutti i diritti riservati. </p>
+ <p style="font-size:14px"><strong><?php echo $__software_copyright ?></strong></p>
 </footer>
 
 <script>

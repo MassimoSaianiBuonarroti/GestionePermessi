@@ -1,7 +1,8 @@
 <?php
 
     //    Per modificare il testo visualizzato sulla homepage.
-    
+    global $__settings;
+
     $_SESSION["anno_scolastico"]= $__settings->config->annoScolastico;
     $_SESSION["permessi_ora_inizio_stringa"]= $__settings->config->permessiOraInizio;
     $_SESSION["permessi_ora_fine_stringa"]= $__settings->config->permessiOraFine;
