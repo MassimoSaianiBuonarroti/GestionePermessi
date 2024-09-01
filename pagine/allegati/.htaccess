@@ -1,9 +1,0 @@
-#<Directory /allegati/*>
-#   Order deny,allow
-#   Deny from all
-#</Directory>
-
-#AuthName "Messaggio di benvenuto"
-#AuthType Basic
-#AuthUserFile /allegati/.htpasswd
-#require valid-user
