@@ -13,9 +13,11 @@
         "limitaOrarioPermessi": true,
         "refEmail": "registroelettronico@buonarroti.tn.it",
         "genericMessage": "BUONE VACANZE A TUTTI",
-        "imgLogo": "logoMartini.png",
-        "imgLogoQuadrato": "logoMartiniquadrato.png",
-        "credenzialiMastercom": false,
-        "ulrAPIMastercom": ""
+        "credenzialiMessage": "Seguire le indicazioni inviate ad inizio anno scolastico",
+        "credenzialiMessageMastercom": "Utilizzare le stesse credenziali del registro Mastercom",
+        "imgLogo": "Buonarroti_Logo_Bianco.png",
+        "imgLogoQuadrato": "logoscuola_icona.png",
+        "credenzialiMastercom": true,
+        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php"
     }
 }

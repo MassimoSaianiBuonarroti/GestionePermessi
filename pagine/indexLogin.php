@@ -54,7 +54,11 @@ global $settings;
                         <?php
                         if ($__settings->config->credenzialiMastercom == true)
                         {
-                            echo '<div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>';
+                            echo '<div class="adatta_testo">' . $__settings->config->credenzialiMessageMastercom . '</div>';
+                        }
+                        else
+                        {
+                            echo '<div class="adatta_testo">' . $__settings->config->credenzialiMessage . '</div>';
                         }
                         ?>
                         <br>
