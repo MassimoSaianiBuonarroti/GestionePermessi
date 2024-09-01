@@ -4,12 +4,6 @@
     ob_start (); 
     session_start();
 
-    echo "-" . $_SESSION["nomeutente"];
-    echo "-" . $_SESSION["password"];
-    echo "-" . $_SESSION["loggato"];
-    echo "-" . $_SESSION["idutente"];
-    echo "-" . $_SESSION["ruolo"];
-
     require_once 'accessoDatabase.php';
     $con= accesso();
 

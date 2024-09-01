@@ -80,8 +80,21 @@ global $settings;
                             </div>
                             <button type="submit" class="btn btn-black adatta_testo1">Login</button>
                         </form>
-                        <br><br>
-                        <b></b><p style="color:red;font-size:20px"></p></b>
+                        <br>
+                        <?php 
+                        if (isset($_GET['err'])) 
+                        {
+                            if (($_GET['err']) == "nouser")
+                            {
+                                echo '<b><p style="color:blue;font-size:16px">Le credenziali immesse non sono valide</p></b>';
+                            }
+                            if (($_GET['err']) == "errmastercom")
+                            {
+                                echo '<b><p style="color:blue;font-size:16px">Problema collegamento con Mastercom</p></b>';
+                            }
+                        }
+                        ?>
+                        <br>
                         <b><p style="color:red;font-size:20px"><?php echo $__settings->config->genericMessage ?></p></b>
                         <br><br>
                         <div>Dimenticata la password?</div>

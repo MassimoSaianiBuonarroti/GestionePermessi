@@ -44,8 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $username= $_POST["nomeutente"];
         $password= $_POST["password"];
-        //echo $username;
-        //echo $password;
        
         // verifico se esiste un utente admin con qs credenziali
 
@@ -70,15 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             if ($__settings->config->credenzialiMastercom == true)
             // se Mastercom è abilitato
-            {
+            {    
                 // verifico se il nome utente esiste nel database
-                $esiste_login= esiste_login($username,$password, $con, false);
-            
+                $esiste_login= esiste_login($username,$password, $con, true);
+
                 if($esiste_login>0)
                 {
 
                     $curl = curl_init();
-                
+
                     curl_setopt_array($curl, [
                     CURLOPT_URL => "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php?form_user=" . $username . "&form_password=" . $password,
                     CURLOPT_RETURNTRANSFER => true,
@@ -103,20 +101,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                     // c'è stato un errore nella richiesta
                     {
                             $_SESSION["loggato"]= "no";
-                            header("Location:../index.php");
+                            header("Location:../index.php?err=errmastercom");
                     } 
                     else 
-                    {
+                    {     
                         $array = json_decode($response, true);
                         if ($array["auth"] == false)
                         // autenticazione KO
-                        {
+                        {                        
                             $_SESSION["loggato"]= "no";
-                            header("Location: ../index.php");
+                            header("Location: ../index.php?err=nouser");
                         }
                         else
                         // autenticazione OK
-                        {
+                        {                           
                             $_SESSION["nomeutente"]= $username;//$username;
                             $_SESSION["password"]=$password;
                             $_SESSION["loggato"]= "si";
@@ -130,14 +128,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 // non esiste username nel database
                 {
                     $_SESSION["loggato"]= "no";
-                    header("Location: ../index.php");
+                    header("Location: ../index.php?err=nouser");
                 }   
             }
             else
             // Mastercom non è attivo - usiamo la password del database
             {
                 // verifico se il nome utente esiste nel database
-                $esiste_login= esiste_login($username,$password, $con, true);
+                $esiste_login= esiste_login($username,$password, $con, false);
             
                 if($esiste_login>0)
                 {
@@ -152,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 // non esiste username nel database o password sbagliata
                 {
                     $_SESSION["loggato"]= "no";
-                    header("Location: ../index.php");
+                    header("Location: ../index.php?err=nouser");
                 }   
             }
         }
