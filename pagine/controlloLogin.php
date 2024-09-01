@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                     $curl = curl_init();
 
                     curl_setopt_array($curl, [
-                    CURLOPT_URL => "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php?form_user=" . $username . "&form_password=" . $password,
+                    CURLOPT_URL => $__settings->config->ulrAPIMastercom . "?form_user=" . $username . "&form_password=" . $password,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
                     CURLOPT_MAXREDIRS => 10,
