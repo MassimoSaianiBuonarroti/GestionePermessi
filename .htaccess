@@ -1,0 +1,4 @@
+#<Directory /allegati/*>
+#   Order deny,allow
+#   Deny from all
+#</Directory>

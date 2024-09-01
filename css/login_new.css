@@ -1,0 +1,109 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+    
+    background: #3366ff;
+   
+}
+
+.sidenav {
+    
+    background-color: #1961AC;
+    overflow-x: hidden;
+    padding-top: 5px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+/*@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 5px;}
+    
+    
+}*/
+
+/*@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}*/
+
+@media screen and (min-width: 200px) and (max-width: 500px){
+    .adatta_testo{font-size: 1em;}
+    .adatta_testo1{font-size: 1em;}
+    .schermo_intero { width: 266px; height: auto; }
+    .sidenav{overflow: visible ;}
+    .login-form{margin-top: 10%;}
+}
+
+@media screen and (min-width: 501px) and (max-width: 812px){
+    .adatta_testo{font-size: 1.5em;}
+    .adatta_testo1{font-size: 1.5em;}
+    .schermo_intero { width: 350px; height: auto; }
+    .sidenav{overflow: visible ;}
+    .login-form{margin-top: 5%;}
+}
+
+@media screen and (min-width: 813px){
+    .main{
+        
+    }
+
+    .sidenav{
+        height: 140%;
+        
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    
+
+    .login-form{
+        margin-top: 30%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+
+    .schermo_intero { width: 466px; height: auto; }
+}
+
+
+.login-main-text{
+    margin-top: 10%;
+    padding: 20px;
+    color: #fff;
+   
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #FF914D !important;
+    color: #fff;
+    font-size: 22px;
+}
+
+.testata{
+    color: white;
+    background-color: #1961AC;
+    font-size: 1.8em !important;
+}
+
+
+
+
+
