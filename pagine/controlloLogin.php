@@ -139,12 +139,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             
                 if($esiste_login>0)
                 {
+                    $password= md5($password);
                     $_SESSION["nomeutente"]= $username;//$username;
                     $_SESSION["password"]=$password;
                     $_SESSION["loggato"]= "si";
                     $_SESSION["idutente"]= $esiste_login;
                     $_SESSION["ruolo"]= "genitore";
-                    header("Location: indexLogout.php");
+                    if ($password == $__settings->config->defaultpassword)
+                    {
+                        header("Location: cambiapassword.php");
+                    }
+                    else
+                    {
+                        header("Location: indexLogout.php");
+                    }
                 }
                 else
                 // non esiste username nel database o password sbagliata

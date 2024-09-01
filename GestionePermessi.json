@@ -17,7 +17,8 @@
         "credenzialiMessageMastercom": "Utilizzare le stesse credenziali del registro Mastercom",
         "imgLogo": "Buonarroti_Logo_Bianco.png",
         "imgLogoQuadrato": "logoscuola_icona.png",
-        "credenzialiMastercom": true,
-        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php"
+        "credenzialiMastercom": false,
+        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php",
+        "defaultpassword": "0bc7269500d814c3276c9986335bb988"
     }
 }

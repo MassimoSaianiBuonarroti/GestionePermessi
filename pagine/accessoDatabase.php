@@ -188,11 +188,11 @@ function invioEmail_Annulla($tipo1,$data1,$orauscita1,$cognomenomegenitore1,$cog
 function modificaPassword($con,$nuovapassword,$nuovapassword_ripeti,$fkUtente){
     //Preparated Statement
     // prepare and bind
-    $stmt = $con->prepare("UPDATE login SET password=?,password_cambiata=? WHERE nomeutente=?");
-    $stmt->bind_param("ssi", $nuovapassword1,$password_cambiata,$fkUtente1);
+    $stmt = $con->prepare("UPDATE login SET password=?,cambiata=? WHERE nomeutente=?");
+    $stmt->bind_param("ssi", $nuovapassword1,$cambiata,$fkUtente1);
     // set parameters and execute
     $nuovapassword1= md5($nuovapassword);
-    $password_cambiata= "si";
+    $cambiata= "si";
     $fkUtente1= $fkUtente;
     $stmt->execute();
     //--------------------
