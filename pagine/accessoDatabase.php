@@ -21,11 +21,11 @@ return $connessione;
 }
 
 //FUNZIONE CHE SALVA IL PERMESSO
-function salvaPermesso($con,$tipo,$data,$orauscita,$cognomenomegenitore,$cognomenomestudente,$classe,$motivazione,$note,$fkUtente){ 
+function salvaPermesso($con,$tipo,$data,$orauscita,$cognomenomegenitore,$cognomenomestudente,$classe,$motivazione,$fkUtente){ 
     //Preparated Statement
     // prepare and bind
-    $stmt = $con->prepare("INSERT INTO permesso(tipo,data,orauscita,cognomenomegenitore,cognomenomestudente,classe,motivazione,note,fkUtente,stato) VALUES(?,?,?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("ssssssssii", $tipo1,$data1,$orauscita1,$cognomenomegenitore1,$cognomenomestudente1,$classe1,$motivazione1,$note1,$fkUtente1,$stato1);
+    $stmt = $con->prepare("INSERT INTO permesso(tipo,data,orauscita,cognomenomegenitore,cognomenomestudente,classe,motivazione,fkUtente,stato) VALUES(?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssii", $tipo1,$data1,$orauscita1,$cognomenomegenitore1,$cognomenomestudente1,$classe1,$motivazione1,$fkUtente1,$stato1);
 
     // set parameters and execute
     $tipo1= $tipo;
@@ -35,7 +35,6 @@ function salvaPermesso($con,$tipo,$data,$orauscita,$cognomenomegenitore,$cognome
     $cognomenomestudente1= $cognomenomestudente;
     $classe1= $classe;
     $motivazione1= $motivazione;
-    $note1= $note;
     $fkUtente1= $fkUtente;
     $stato1= 0;
     $stmt->execute();
