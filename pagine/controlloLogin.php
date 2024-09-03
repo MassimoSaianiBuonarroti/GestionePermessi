@@ -141,13 +141,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 if($esiste_login>0)
                 {
                     $password= md5($password);
+                    $defaultpass = md5($__settings->config->defaultpassword);
 
                     $_SESSION["nomeutente"]= $username;//$username;
                     $_SESSION["password"]=$password;
                     $_SESSION["loggato"]= "si";
                     $_SESSION["idutente"]= $esiste_login;
                     $_SESSION["ruolo"]= "genitore";
-                    if ($password == $__settings->config->defaultpassword)
+                    if ($password == $defaultpass)
                     {
                         header("Location: cambiapassword.php");
                     }
