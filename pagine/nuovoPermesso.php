@@ -140,7 +140,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <p><input type="text" name="classe" placeholder="Classe" value="<?php //echo $classe?>"></p>-->
         <!--<p><input type="text" name="motivazione" placeholder="Motivazione"></p> -->       
         <br><br>
-        <p>NOTE<br><textarea name="note" rows="7" cols="40"></textarea></p>
+        <p>MOTIVAZIONE RICHIESTA PERMESSO<br><textarea name="note" rows="7" cols="40" required></textarea></p>
         <p><input type="hidden" name="tipo" value="com"></p>
         <p><button class="btn btn-black adatta_testo1" type="submit" name="invia"><b>INVIA</b> </button></p>       
     </form>
@@ -173,7 +173,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         //echo $cognomenomestudente."<br>";
         //$classe= $_POST["classe"];
         //echo $classe."<br>";
-        $motivazione= "";//$_POST["motivazione"];
+        //$motivazione= $_POST["motivazione"];
         //echo $motivazione."<br>";
         $note= $_POST["note"];
         //echo $note."<br>";
@@ -206,7 +206,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 echo "<div id='bottom' class='alert alert-success'>
                             <strong>".$risposta."</strong> 
                             </div>";
-                salvaPermesso($con,$tipo,$data,$orauscita,$cognomenomegenitore,$cognomenomestudente,$classe,$motivazione,$note,$fkUtente);
+                salvaPermesso($con,$tipo,$data,$orauscita,$cognomenomegenitore,$cognomenomestudente,$classe,$note,$fkUtente);
             }
         }
         else{

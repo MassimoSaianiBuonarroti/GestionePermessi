@@ -1,0 +1,17 @@
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Release\net6.0-windows\GestionePermessi.exe
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Release\net6.0-windows\GestionePermessi.deps.json
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Release\net6.0-windows\GestionePermessi.runtimeconfig.json
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Release\net6.0-windows\GestionePermessi.dll
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Release\net6.0-windows\GestionePermessi.pdb
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.Form1.resources
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.csproj.GenerateResource.cache
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.AssemblyInfoInputs.cache
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.AssemblyInfo.cs
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.csproj.CoreCompileInputs.cache
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.sourcelink.json
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.dll
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\refint\GestionePermessi.dll
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.pdb
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\GestionePermessi.genruntimeconfig.cache
+C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\obj\Release\net6.0-windows\ref\GestionePermessi.dll

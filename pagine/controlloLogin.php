@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $username= $_POST["nomeutente"];
         $password= $_POST["password"];
-       
+        
         // verifico se esiste un utente admin con qs credenziali
 
         $esiste_utente= esiste_utente($username,$password, $con);
@@ -134,17 +134,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             else
             // Mastercom non è attivo - usiamo la password del database
             {
+
                 // verifico se il nome utente esiste nel database
                 $esiste_login= esiste_login($username,$password, $con, false);
-            
+        
                 if($esiste_login>0)
                 {
+                    $password= md5($password);
+
                     $_SESSION["nomeutente"]= $username;//$username;
                     $_SESSION["password"]=$password;
                     $_SESSION["loggato"]= "si";
                     $_SESSION["idutente"]= $esiste_login;
                     $_SESSION["ruolo"]= "genitore";
-                    header("Location: indexLogout.php");
+                    if ($password == $__settings->config->defaultpassword)
+                    {
+                        header("Location: cambiapassword.php");
+                    }
+                    else
+                    {
+                        header("Location: indexLogout.php");
+                    }
                 }
                 else
                 // non esiste username nel database o password sbagliata
@@ -200,7 +210,7 @@ function esiste_login($username,$password,$con,$mastercom){
     }
 
     $result= mysqli_query($con,$stringa);
-    
+
     if(mysqli_num_rows($result)>0){
         $row= mysqli_fetch_array($result);
         return $row["idUtente"];

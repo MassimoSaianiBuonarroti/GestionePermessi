@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GestionePermessi</id>
+    <version>2.0.1</version>
+    <authors>GestionePermessi</authors>
+    <description>Package Description</description>
+    <copyright>© GNU GPL 3.0 - Saiani Massimo - ITT Buonarroti - Trento</copyright>
+    <repository type="git" commit="92277d730e21aa8540979e3baeeadadf20932fc6" />
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows7.0/favicon.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Debug\net6.0-windows\GestionePermessi.runtimeconfig.json" target="lib\net6.0-windows7.0\GestionePermessi.runtimeconfig.json" />
+    <file src="C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\bin\Debug\net6.0-windows\GestionePermessi.dll" target="lib\net6.0-windows7.0\GestionePermessi.dll" />
+    <file src="C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\favicon.ico" target="content\favicon.ico" />
+    <file src="C:\Users\ingma\github\GestionePermessi\PermessiVS\GestionePermessi\favicon.ico" target="contentFiles\any\net6.0-windows7.0\favicon.ico" />
+  </files>
+</package>

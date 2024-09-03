@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <?php
+
+/**
+ *  This file is part of Gestione Permessi
+ *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
+ *  @copyright  (C) 2024 Massimo Saiani
+ *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
+ */
+
 session_start();
 require_once('browser.php');
 $browser = new Browser();
 if(!isset($_SESSION["loggato"])){
     header("Location:../index.php");
 }
-else
-    if(($_SESSION["password"]=="12345678")){
-        header("Location:cambiapasswordpa.php");
-}
+// else
+//     if(($_SESSION["password"]=="12345678")){
+//         header("Location:cambiapasswordpa.php");
+// }
 
 if($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == Browser::BROWSER_SAFARI){
     header("Location:../index.php");
@@ -88,7 +96,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <div>RIPETI LA NUOVA PASSWORD:</div>
         <p><input type="password" name="nuovapassword_ripeti" placeholder="Ripeti Nuova Password" id="pwd1"></p> 
         <input type="button" onclick="showPwd1()" value="Mostra/nascondi password">
-        <p><button class="btn btn-danger" type="submit" name="modificapassword">MODIFICA PASSWORD</button></p>       
+        <p><button style="background-color: red" type="submit" name="modificapassword">MODIFICA PASSWORD</button></p>       
     </form>
     <?php
     include 'accessoDatabase.php';

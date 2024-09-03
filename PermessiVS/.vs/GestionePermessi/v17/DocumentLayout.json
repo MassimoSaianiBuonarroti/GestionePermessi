@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|c:\\users\\ingma\\github\\gestionepermessi\\permessivs\\gestionepermessi\\gestionepermessi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|solutionrelative:gestionepermessi\\gestionepermessi.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|c:\\users\\ingma\\github\\gestionepermessi\\permessivs\\gestionepermessi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|solutionrelative:gestionepermessi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\gestionepermessi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|solutionrelative:gestionepermessi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\gestionepermessi\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|solutionrelative:gestionepermessi\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|c:\\users\\ingma\\github\\gestionepermessi\\permessivs\\gestionepermessi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF592122-9473-41FA-A7E4-29C546F27109}|GestionePermessi\\GestionePermessi.csproj|solutionrelative:gestionepermessi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GestionePermessi",
+              "DocumentMoniker": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\GestionePermessi.csproj",
+              "RelativeDocumentMoniker": "GestionePermessi\\GestionePermessi.csproj",
+              "ToolTip": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\GestionePermessi.csproj",
+              "RelativeToolTip": "GestionePermessi\\GestionePermessi.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-03T17:39:27.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.cs",
+              "RelativeDocumentMoniker": "GestionePermessi\\Form1.cs",
+              "ToolTip": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.cs",
+              "RelativeToolTip": "GestionePermessi\\Form1.cs",
+              "ViewState": "AQIAANYAAAAAAAAAAAAowO4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T17:34:16.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.cs",
+              "RelativeDocumentMoniker": "GestionePermessi\\Form1.cs",
+              "ToolTip": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "GestionePermessi\\Form1.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T17:36:29.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.resx",
+              "RelativeDocumentMoniker": "GestionePermessi\\Form1.resx",
+              "ToolTip": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.resx",
+              "RelativeToolTip": "GestionePermessi\\Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-09-03T17:36:26.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "GestionePermessi\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\ingma\\github\\GestionePermessi\\PermessiVS\\GestionePermessi\\Form1.Designer.cs",
+              "RelativeToolTip": "GestionePermessi\\Form1.Designer.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowEMAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T17:34:10.227Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -99,13 +99,13 @@ function confermaAnnulla(nome){
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-center testata" style="padding:70px 16px">
+<header class="w3-container w3-center testata" style="padding:50px 16px 10px 16px">
 <!--style="padding:100px 16px">-->
   <h2 class="w3-margin w3-jumbo testata">FRONT OFFICE</h2>
 </header>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-row-padding w3-padding-32 w3-container">
 
 
 <br>
@@ -160,10 +160,10 @@ else{
 }
 //-------------------------------
 
-//SALVA ANNOTAZIONE FRONTOFFICE NEL CAMPO "MOTIVAZIONE"
+//SALVA ANNOTAZIONE FRONTOFFICE NEL CAMPO "NOTE"
 if(isset($_POST["annota_salva"])){   
     $idrigainfo= $_POST["idrigasel"];                                 
-    $query= "UPDATE permesso SET motivazione='".$_POST['annota']."' WHERE idPermesso=$idrigainfo";  
+    $query= "UPDATE permesso SET note='".$_POST['annota']."' WHERE idPermesso=$idrigainfo";  
     $result=mysqli_query($con,$query); 
 } 
 else{
@@ -185,18 +185,9 @@ if(isset($_POST["data"]) && $_POST["data"] != ""){
     $_SESSION["datascelta"]= $_POST["data"];
     unset($_SESSION["cosa"]);
 }
-else{
-    //$_SESSION["datascelta"]= date("Y-m-d");
-    //$_SESSION["cosa"]=="no";
-}
-
-//if(isset($_POST["ricercadata"])){
-    //echo $_POST["ricerca"];
-    //echo "SONO QUI";
     
     if(isset($_SESSION["datascelta"])){
         $data_corrente= $_SESSION["datascelta"];
-        
     }
     else{
         $data_corrente= date("Y-m-d");
@@ -217,7 +208,8 @@ else{
         echo "<div style='font-size:30px'><b>ORDINATE PER CLASSE"."</b></div>";
 
     }
-    else{
+    else
+    {
         if ((isset($_SESSION["cosa"]) && ($_SESSION["cosa"]=="ordineClasse")) && (isset($_POST["ordinaclasse"])))
         {
             $query= "SELECT * FROM permesso WHERE data='" . $data_corrente. "' AND stato=0 AND fatto='no' ORDER BY data,classe";
@@ -243,9 +235,10 @@ else{
     ?>
 
     <?php
+    echo "<br>"; 
     echo '<div style="overflow-x: auto;">';
-    echo "<table class='table table-striped'>";
-    echo "<th>STUDENTE</th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaclasse'>CLASSE</button></form></th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaora'>ORA</button></form></th><th>GENITORE</th><th>NOTE</th><th>ANNOTAZIONE - DOCENTE</th><th>FATTO</th>";
+    echo '<table class="table table-striped">';
+    echo "<th>STUDENTE</th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaclasse'>CLASSE</button></form></th><th><form name='ordinaClasse' action='#' method='POST'><button type='submit' name='ordinaora'>ORA</button></form></th><th>GENITORE</th><th>MOTIVAZIONE</th><th>ANNOTAZIONE - SEGRETERIA</th><th>FATTO</th>";
     if(isset($_POST["ordinaclasse"])){
         
         $query= "SELECT * FROM permesso WHERE data='".$data_corrente. "' AND stato=0 ORDER BY data,classe";
@@ -261,7 +254,7 @@ else{
         echo "<div style='font-size:30px'><b>ORDINATE PER ORA"."</b></div>";
     }
     else{
-        //unset($_SESSION["cosa"]);
+        unset($_SESSION["cosa"]);
     }
     
     while($row= mysqli_fetch_array($result)){
@@ -269,17 +262,17 @@ else{
         //echo "<td>";
         //echo $row["idUtente"];                              
         //echo "</td>";
-        echo "<td>";
+        echo '<td>';
         // Creo una array dividendo la data YYYY-MM-DD sulla base del trattino
         //$array = explode("-", $row["data"]); 
         // Riorganizzo gli elementi in stile DD/MM/YYYY
         //$data_it = $array[2]."/".$array[1]."/".$array[0]; 
         echo $row["cognomenomestudente"];
         echo "</td>";
-        echo "<td>";
+        echo '<td>';
         echo $row["classe"];                              
         echo "</td>";
-        echo "<td>";
+        echo '<td>';
         echo $row["orauscita"];                              
         echo "</td>";
         //echo "<td>";
@@ -294,18 +287,18 @@ else{
         echo "<td>";
         echo $row["classe"];                              
         echo "</td>";*/
-        echo "<td>";
+        echo '<td>';
         echo $row["cognomenomegenitore"];                              
         echo "</td>";
-        echo "<td>";
-        echo $row["note"];                              
+        echo '<td>';
+        echo $row["motivazione"];                              
         echo "</td>";   
 
         echo "<form name='annotazione' action='#' method='POST'>";  
-        echo "<td style='text-align:center'>"; 
+        echo '<td>';
         echo "<input type='hidden' name='idrigasel' value='".$row["idPermesso"]."'>";
         //echo "<input type='hidden' name='datarigaannulla' value='".$row["data"]."'>";                             
-        echo "<span style='float:left;'><input type='text' size='25' name='annota' value='".$row["motivazione"]."'></span>";                          
+        echo "<span style='float:left;'><input type='text' size='50' name='annota' value='".$row["note"]."'></span>";                          
         echo "<span style='float:left;'><button class='btn btn-danger' type='submit' name='annota_salva'><i class='fa fa-save'></i></button></span>";
         echo "</td>";                
         echo "</form>";
@@ -332,11 +325,6 @@ else{
     ?>
     </div>
     
-
-
-    
-
-
     <!-- Footer -->
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
     <div class="w3-xlarge w3-padding-32">

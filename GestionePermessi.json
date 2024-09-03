@@ -12,12 +12,13 @@
         "permessiOraFine": "09:00",
         "limitaOrarioPermessi": true,
         "refEmail": "registroelettronico@buonarroti.tn.it",
-        "genericMessage": "BUONE VACANZE A TUTTI",
-        "credenzialiMessage": "Seguire le indicazioni inviate ad inizio anno scolastico",
+        "genericMessage": "I permessi potranno essere richiesti a partire dal prossimo 8 settembre 2024.",
+        "credenzialiMessage": "Le credenziali saranno attive a partire dal prossimo 8 settembre 2024.",
         "credenzialiMessageMastercom": "Utilizzare le stesse credenziali del registro Mastercom",
         "imgLogo": "Buonarroti_Logo_Bianco.png",
         "imgLogoQuadrato": "logoscuola_icona.png",
         "credenzialiMastercom": true,
-        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php"
+        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php",
+        "defaultpassword": "0bc7269500d814c3276c9986335bb988"
     }
 }
