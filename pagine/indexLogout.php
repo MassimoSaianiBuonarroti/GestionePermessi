@@ -75,7 +75,7 @@
                                 $nomegenitore= $row["cognome_genitore"]." ".$row["nome_genitore"];
                             }
                             
-                            echo "<h4>Benvenuto <b>".$nomegenitore."</b></h4>";
+                            echo "<h4>Benvenuto/a <b>".$nomegenitore."</b></h4>";
                             $ora= date("H:i");
                             //echo "<br>Sono le ore <b>".$ora."</b>";
                             //echo "Data di oggi: ".date("Y-m-d");
