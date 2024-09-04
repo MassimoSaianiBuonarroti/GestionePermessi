@@ -83,11 +83,18 @@
                             // Per ora solare <8 >16 (inverno)
                             if( $browser->getBrowser() != Browser::BROWSER_IE && $browser->getBrowser() != Browser::BROWSER_SAFARI){
                                 //07:00:00 - 15:00:00
-                                if($ora<$_SESSION["permessi_ora_fine"] || $ora>$_SESSION["permessi_ora_inizio"]){
-                                    echo "<br><br><button type='button' class='btn btn-danger btn-block' onclick=window.location.href='nuovoPermesso.php'>NUOVO PERMESSO</button>";
+                                if ($__settings->config->limitaOrarioPermessi == true)
+                                {
+                                    if($ora<$_SESSION["permessi_ora_fine"] || $ora>$_SESSION["permessi_ora_inizio"]){
+                                        echo "<br><br><button type='button' class='btn btn-danger btn-block' onclick=window.location.href='nuovoPermesso.php'>NUOVO PERMESSO</button>";
+                                    }
+                                    else{
+                                        echo "<div style=color:red><br>IL PULSANTE DEI PERMESSI SI ABILITERA' DOPO LE ORE ". $_SESSION['permessi_ora_inizio_stringa']."</div>";
+                                    }
                                 }
-                                else{
-                                    echo "<div style=color:red><br>IL PULSANTE DEI PERMESSI SI ABILITERA' DOPO LE ORE ". $_SESSION['permessi_ora_inizio_stringa']."</div>";
+                                else
+                                {
+                                    echo "<br><br><button type='button' class='btn btn-danger btn-block' onclick=window.location.href='nuovoPermesso.php'>NUOVO PERMESSO</button>";
                                 }
                             }
                             else{
