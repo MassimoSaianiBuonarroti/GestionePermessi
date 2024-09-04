@@ -63,12 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         
         else
         {
-
             // se non è un admin controllo se è un genitore
 
             if ($__settings->config->credenzialiMastercom == true)
             // se Mastercom è abilitato
-            {    
+            {  
+
                 // verifico se il nome utente esiste nel database
                 $esiste_login= esiste_login($username,$password, $con, true);
 
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                     // c'è stato un errore nella richiesta
                     {
                             $_SESSION["loggato"]= "no";
-                            header("Location:../index.php?err=errmastercom");
+                            header("Location: indexLogin.php?err=errmastercom");
                     } 
                     else 
                     {     
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                         // autenticazione KO
                         {                        
                             $_SESSION["loggato"]= "no";
-                            header("Location: ../index.php?err=nouser");
+                            header("Location: indexLogin.php?err=nouser");
                         }
                         else
                         // autenticazione OK
@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 // non esiste username nel database
                 {
                     $_SESSION["loggato"]= "no";
-                    header("Location: ../index.php?err=nouser");
+                    header("Location: indexLogin.php?err=nouser");
                 }   
             }
             else
@@ -137,13 +137,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
                 // verifico se il nome utente esiste nel database
                 $esiste_login= esiste_login($username,$password, $con, false);
-        
+                echo $username;
+                die();
+
                 if($esiste_login>0)
                 {
                     $password= md5($password);
                     $defaultpass = md5($__settings->config->defaultpassword);
 
-                    $_SESSION["nomeutente"]= $username;//$username;
+                    $_SESSION["nomeutente"]= $username;
                     $_SESSION["password"]=$password;
                     $_SESSION["loggato"]= "si";
                     $_SESSION["idutente"]= $esiste_login;
@@ -161,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 // non esiste username nel database o password sbagliata
                 {
                     $_SESSION["loggato"]= "no";
-                    header("Location: ../index.php?err=nouser");
+                    header("Location: indexLogin.php?err=nouser");
                 }   
             }
         }
