@@ -11,7 +11,7 @@
 
 <?php
 $__software_name = 'GestionePermessi';
-$__software_version = '2.1.3';
+$__software_version = '2.1.4';
 $__software_release_date = '4 sett 2024';
 $__software_copyright = '© GNU GPL 3.0 - Saiani Massimo - ITT Buonarroti - Trento';
 ?>
