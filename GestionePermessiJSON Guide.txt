@@ -1,0 +1,57 @@
+{
+    NOME APPLICAZIONE
+    "name": "GestionePermessi",
+    
+    DATI DI ACCESSO AL DATABASE
+    "db": {
+        "host": "xx.xx.xx.xx", 
+        "user": "db_user",
+        "password": "db_password",
+        "database": "db_name"
+    },
+
+    CONFIGURAZIONE FUNZIONALITA' PROGRAMMA
+    "config": {
+    
+    ANNO SCOLASTICO ATTUALE
+        "annoScolastico": "a.s. 2024/2025",
+
+    GESTIONE LIMITE ORARIO INSERIMENTO PERMESSI
+    
+    ORA DEL GIORNO DI INIZIO INSERIMENTO (il giorno prima del permesso di uscita richiesto)
+        "permessiOraInizio": "15:00",
+    
+    ORA DEL GIORNO DI FINE INSERIMENTO (il giorno stesso del permesso di uscita richiesto)
+        "permessiOraFine": "09:00",
+
+    SCEGLI SE IL CONTROLLO ORARIO VIENE FATTO O MENO
+        "limitaOrarioPermessi": true,
+    
+    EMAIL CHE APPARE SOTTO LA LOGIN COME REFERENTE PER PROBLEMI DI accesso
+        "refEmail": "registroelettronico@buonarroti.tn.it",
+
+    MESSAGGIO GENERICO CHE APPARE SOTTO LA LOGIN COME INFORMAZIONE AI GENITORI
+        "genericMessage": "I permessi potranno essere richiesti a partire dal prossimo 8 settembre 2024.",
+        
+    MESSAGGIO CHE APPARE NELLA PARTE SINISTRA DELLA PAGINA DI LOGIN CON LE FUNZIONALITA' MASTERCOM DISABILITATE
+    "credenzialiMessage": "Le credenziali saranno attive a partire dal prossimo 8 settembre 2024.",
+    
+    MESSAGGIO CHE APPARE NELLA PARTE SINISTRA DELLA PAGINA DI LOGIN CON LE FUNZIONALITA' MASTERCOM ABILITATE
+        "credenzialiMessageMastercom": "Utilizzare le stesse credenziali del registro Mastercom",
+
+    IMMAGINE LOGO NELLA CARTELLA Immagini CHE COMPARE NELLA PAGINA DI LOGIN A SINISTRA (immagine rettangolare)
+        "imgLogo": "Buonarroti_Logo_Bianco.png",
+    
+    IMMAGINE LOGO CHE APPARE NELLE VARIE PAGINE IN BASSO A PIE' PAGINA (immagine quadrata)
+        "imgLogoQuadrato": "logoscuola_icona.png",
+
+    SE TRUE LA LOGIN GENITORI AVVIENE CON LE CREDENZIALI MASTERCOM, SE FALSE LA LOGIN GENITORI AVVIENE CON LE CREDENZIALI DEL DATABASE - TABELLA login
+        "credenzialiMastercom": true,
+
+    INDIRIZZO DI ACCESSO ALLE CHIAMATE MASTERCOM - DA PERSONALIZZARE CON IL PROPRIO INDIRIZZO MASTERCOM    
+        "ulrAPIMastercom": "https://buonarroti-tn.registroelettronico.com/mastercom/register_manager.php",
+
+    PASSWORD DI DEFAULT, DA COMUNICARE AI GENITORI AD INIZIO ANNO, CHE UTILIZZANO I GENITORI PER IL PRIMO ACCESSO (SE NON SI USA MASTERCOM)
+        "defaultpassword": "anno2024"
+    }
+}
