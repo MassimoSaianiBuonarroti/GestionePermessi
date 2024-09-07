@@ -191,7 +191,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
         if($data>=$data_corrente){ 
             //CONTROLLO CHE LA DATA NON SIA SUCCESSIVA A DOMANI
-            if($data>$data_domani){
+            if($__settings->config->limitaDataPermessi == true && $data>$data_domani){
                 //echo "<div style=color:red>Non è possibile creare PERMESSI nei giorni successivi a domani.</div>";
                 //echo "<div style=color:red>Selezionare una DATA corretta.</div>";  
                 $risposta= "Non è possibile creare PERMESSI nei giorni successivi a domani. Selezionare una DATA corretta";

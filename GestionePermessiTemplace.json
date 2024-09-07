@@ -11,6 +11,7 @@
         "permessiOraInizio": "15:00",
         "permessiOraFine": "09:00",
         "limitaOrarioPermessi": true,
+        "limitaDataPermessi": true,
         "refEmail": "registroelettronico@buonarroti.tn.it",
         "genericMessage": "I permessi potranno essere richiesti a partire dal prossimo 8 settembre 2024.",
         "credenzialiMessage": "Le credenziali saranno attive a partire dal prossimo 8 settembre 2024.",
