@@ -23,7 +23,6 @@ global $settings;
 
     if(isset($_SESSION["loggato"])){
         if($_SESSION["loggato"]=="no"){
-            //echo "<script>alert('NOME UTENTE O PASSWORD NON CORRETTA');</script>";
             unset($_SESSION["loggato"]);
         }
     }
@@ -88,9 +87,13 @@ global $settings;
                             {
                                 echo '<b><p style="color:blue;font-size:16px">Le credenziali immesse non sono valide</p></b>';
                             }
+                            if (($_GET['err']) == "nouserdb")
+                            {
+                                echo '<b><p style="color:blue;font-size:16px">IL suo account non è presente nell"elenco dei genitori. Avvisare la segreteria</p></b>';
+                            }
                             if (($_GET['err']) == "errmastercom")
                             {
-                                echo '<b><p style="color:blue;font-size:16px">Problema collegamento con Mastercom</p></b>';
+                                echo '<b><p style="color:blue;font-size:16px">Problema di collegamento con Mastercom</p></b>';
                             }
                         }
                         ?>

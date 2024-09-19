@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 // non esiste username nel database
                 {
                     $_SESSION["loggato"]= "no";
-                    header("Location: indexLogin.php?err=nouser");
+                    header("Location: indexLogin.php?err=nouserdb");
                 }   
             }
             else
