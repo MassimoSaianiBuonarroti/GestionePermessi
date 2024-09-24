@@ -89,7 +89,7 @@ global $settings;
                             }
                             if (($_GET['err']) == "nouserdb")
                             {
-                                echo '<b><p style="color:blue;font-size:16px">IL suo account non è presente nell"elenco dei genitori. Avvisare la segreteria</p></b>';
+                                echo '<b><p style="color:blue;font-size:16px">Il suo account non è presente nell"elenco dei genitori. <br>Inviare una mail a <a href=mailto:"registroelettronico@buonarroti.tn.it">registroelettronico@buonarroti.tn.it</a> segnalando il problema</p></b>';
                             }
                             if (($_GET['err']) == "errmastercom")
                             {
