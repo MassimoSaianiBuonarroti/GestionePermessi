@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $username= $_POST["nomeutente"];
         $password= $_POST["password"];
-        
+
         // verifico se esiste un utente admin con qs credenziali
 
         $esiste_utente= esiste_utente($username,$password, $con);
@@ -68,17 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             if ($__settings->config->credenzialiMastercom == true)
             // se Mastercom è abilitato
             {  
-
                 // verifico se il nome utente esiste nel database
                 $esiste_login= esiste_login($username,$password, $con, true);
 
                 if($esiste_login>0)
-                {
-
+                {    
                     $curl = curl_init();
-
+                    $newpassword = urlencode($password);
                     curl_setopt_array($curl, [
-                    CURLOPT_URL => $__settings->config->ulrAPIMastercom . "?form_user=" . $username . "&form_password=" . $password,
+                    CURLOPT_URL => $__settings->config->ulrAPIMastercom . "?form_user=" . $username . "&form_password=" . $newpassword,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
                     CURLOPT_MAXREDIRS => 10,
@@ -91,8 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                         "User-Agent: insomnia/9.2.0"
                     ],
                     ]);
-                
                     $response = curl_exec($curl);
+
                     $err = curl_error($curl);
                 
                     curl_close($curl);
@@ -137,8 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
                 // verifico se il nome utente esiste nel database
                 $esiste_login= esiste_login($username,$password, $con, false);
-                echo $username;
-                die();
+                //echo $username;
+               // die();
 
                 if($esiste_login>0)
                 {
