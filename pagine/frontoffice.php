@@ -14,6 +14,9 @@ session_start();
 if(!isset($_SESSION["loggato"])){
     header("Location:../index.php");
 }
+if($_SESSION["loggato"]== "no"){
+    header("Location:../index.php");
+}
 
 ?>
 
@@ -81,7 +84,19 @@ function confermaAnnulla(nome){
     </form>
     <?php
     if(isset($_POST["logoutadmin"])){
+        if (isset($_SESSION["loggato"]))
+        {
+            $_SESSION["loggato"]="no";
+            unset($_SESSION["loggato"]);
+            unset($_SESSION["nomeutente"]);
+            unset($_SESSION["password"]);
+            unset($_SESSION["loggato"]);
+            unset($_SESSION["idutente"]);
+            unset($_SESSION["ruolo"]);
+        }
+
         session_destroy();
+        session_unset();
         header("Location: ../index.php");
     }
     ?>
