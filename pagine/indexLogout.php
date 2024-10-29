@@ -1,8 +1,11 @@
 <html>
 <head>
     <?php
-    ob_start (); 
     session_start();
+
+    require_once 'load_settings.php';
+    require_once 'impostazioni.php';
+    require_once '../version.php';
 
     require_once 'accessoDatabase.php';
     $con= accesso();
@@ -94,8 +97,13 @@
                         <?php
                         ?>                       
                         <br><br>
-                        <button type="button" class='btn btn-info btn-block' onclick="window.location.href='cambiapassword.php'">CAMBIA PASSWORD</button>
-                        <br><br> 
+                        <?php
+                        if ($__settings->config->credenzialiMastercom == false)
+                        {
+                            echo '<button type="button" class="btn btn-info btn-block" onclick="window.location.href=\'cambiapassword.php\'">CAMBIA PASSWORD</button><br><br> ';
+                        }
+                        ?>
+                        
                         <button type="submit" class="btn btn-warning btn-block"  name="logout">LOGOUT</button>            
                         </form>
                         <?php

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-ob_start();
 session_start();
 require_once('browser.php');
 require_once 'load_settings.php';
@@ -93,15 +92,23 @@ else{
                 href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
             <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-            <?php echo $riga_nuovo_permesso ?>
-            <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large w3-white">Cambia Password</a>
+            <?php echo $riga_nuovo_permesso;
+            if ($__settings->config->credenzialiMastercom == false) 
+            {
+                echo '<a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large w3-white">Cambia Password</a>';
+            }
+            ?>
         </div>
 
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
             <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
-            <?php echo $riga_nuovo_permesso ?>
-            <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>
+            <?php echo $riga_nuovo_permesso; 
+            if ($__settings->config->credenzialiMastercom == false) 
+            {
+                echo '<a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>';
+            }
+            ?>
         </div>
     </div>
 

@@ -85,7 +85,11 @@ if ($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == B
                     class="fa fa-bars"></i></a>
             <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
             <a href="storico.php" class="w3-bar-item w3-button w3-padding-large w3-white">Storico</a>
-            <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large w3-white">Cambia Password</a>
+            <?php
+            if ($__settings->config->credenzialiMastercom == false) {
+                echo '<a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large w3-white">Cambia Password</a>';
+            }
+            ?>
         </div>
 
         <!-- Navbar on small screens -->
@@ -93,7 +97,11 @@ if ($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == B
             <a href="indexLogout.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
             <a href="nuovoPermesso.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Permesso</a>
             <a href="storico.php" class="w3-bar-item w3-button w3-padding-large">Storico</a>
-            <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>
+            <?php
+            if ($__settings->config->credenzialiMastercom == false) {
+                echo '<a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>';
+            }
+            ?>
         </div>
     </div>
 
@@ -207,15 +215,13 @@ if ($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == B
                             // ora controllo gli orari
         
                             if ($__settings->config->limitaOrarioPermessi == true) {
-                                if (($orauscita > "16:20") || ($orauscita < "08:00")) 
-                                {
+                                if (($orauscita > $__settings->config->oraFineLezioni) || ($orauscita < $__settings->config->oraInizioLezioni)) {
                                     $risposta = "Non è possibile inserire un permesso alle " . $orauscita;
                                     echo "<script>alert('" . $risposta . "')</script>";
                                     echo "<div class='alert alert-danger'>
                                     <strong>" . $risposta . "</strong> 
                                     </div>";
-                                } 
-                                else
+                                } else
                                     if ($data == $data_domani) {
                                         // chiedo il permesso per domani - devo essere dopo le 15 o 17
                                         if ($ora > $_SESSION["permessi_ora_inizio"]) {
