@@ -8,7 +8,6 @@
  */
 
 session_start();
-ob_start();
 
 global $__settings;
 
