@@ -10,6 +10,8 @@
         "annoScolastico": "a.s. 2024/2025",
         "permessiOraInizio": "15:00",
         "permessiOraFine": "09:00",
+        "oraInizioLezioni": "07:50",
+        "oraFineLezioni": "16:20",
         "limitaOrarioPermessi": true,
         "limitaDataPermessi": true,
         "refEmail": "registroelettronico@buonarroti.tn.it",
