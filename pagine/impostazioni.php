@@ -18,22 +18,12 @@
     // 1 ora solare (Inverno)
 
     // memorizza i parametri previsti nel JSON
+    date_default_timezone_set("Europe/Rome");
     $inizio = new DateTime($__settings->config->permessiOraInizio);
     $fine = new DateTime($__settings->config->permessiOraFine);
 
-    if ($isDST == 0) // estate - sottraggo 2 ore
-    {
-      $inizio->sub (new DateInterval('PT2H'));
-      $fine->sub(new DateInterval('PT2H'));
- 
-    }
-    else // inverno - sottraggo 1 0ra
-    {
-      $inizio->sub(new DateInterval('PT1H'));
-      $fine->sub(new DateInterval('PT1H'));
-    }
-  
     // memorizzo nelle variabili di sessione gli orari per i confronti necessari
+                           
     $_SESSION["permessi_ora_inizio"] = $inizio->format("H:i:s");
     $_SESSION["permessi_ora_fine"] = $fine->format("H:i:s");
 

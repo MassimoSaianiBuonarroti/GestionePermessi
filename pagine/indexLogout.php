@@ -75,14 +75,11 @@
                                 $nomegenitore= $row["cognome_genitore"]." ".$row["nome_genitore"];
                             }
                             
-                            echo "<h4>Benvenuto/a <b>".$nomegenitore."</b></h4>";
+                            date_default_timezone_set("Europe/Rome");
                             $ora= date("H:i");
-                            //echo "<br>Sono le ore <b>".$ora."</b>";
-                            //echo "Data di oggi: ".date("Y-m-d");
-                            // Per ora legale: <7  >15 (estate)
-                            // Per ora solare <8 >16 (inverno)
+                            
                             if( $browser->getBrowser() != Browser::BROWSER_IE && $browser->getBrowser() != Browser::BROWSER_SAFARI){
-                                //07:00:00 - 15:00:00
+                                //09:00:00 - 15:00:00
                                 if ($__settings->config->limitaOrarioPermessi == true)
                                 {
                                     if($ora<$_SESSION["permessi_ora_fine"] || $ora>$_SESSION["permessi_ora_inizio"]){
