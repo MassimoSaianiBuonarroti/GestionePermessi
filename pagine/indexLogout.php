@@ -16,11 +16,7 @@
     if(!isset($_SESSION["idutente"])){
         header("Location:../index.php");
     }
-    // else
-    //     if(($_SESSION["password"]=="12345678")){
-    //         header("Location:cambiapasswordpa.php");
-    //     }
-        
+       
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -51,8 +47,6 @@
                             echo '<div class="adatta_testo">Le credenziali di accesso sono le stesse del registro elettronico di Mastercom</div>';
                         }
                         ?>
-                        <!--<div class="adatta_testo"><b>Giustificazioni:</b></div> 
-                        <div class="adatta_testo">dalle ore <?php echo $_SESSION["giustificazioni_ora_inizio_stringa"];?> alle ore <?php echo $_SESSION["giustificazioni_ora_fine_stringa"];?> <br>Per favorire il controllo della Segreteria Didattica e tutelare la salute di tutti, si prega di giustificare congiuntamente al rientro a scuola</div>-->
                         <br>
                         <div class="adatta_testo"><u>Ottimizzato per Google Chrome</u></div>
                     </div>
@@ -63,12 +57,8 @@
                     <div class="login-form adatta_testo">
                         <form name="modulo" action="#" method="GET" >
                         <?php
-                            //echo $_SESSION["idutente"];
-                            //include 'accessoDatabase.php';
-                            //$con= accesso();
                             $query= "SELECT * FROM login WHERE idUtente=".$_SESSION["idutente"];
-                            //echo $query;
-                            //die();
+                            
                             $result=mysqli_query($con,$query);   
                             if(mysqli_num_rows($result)>0){
                                 $row= mysqli_fetch_array($result);
@@ -102,22 +92,7 @@
                         <button type="button" class='btn btn-primary btn-block' onclick="window.location.href='storico.php'">STORICO PERMESSI</button>
                         
                         <?php
-                        /*if( $browser->getBrowser() != Browser::BROWSER_IE && $browser->getBrowser() != Browser::BROWSER_SAFARI){
-                                //07
-                                if($ora<$_SESSION["giustificazioni_ora_fine"] || $ora>$_SESSION["giustificazioni_ora_inizio"]){
-                                    echo "<button type='button' class='btn btn-danger btn-block' onclick=window.location.href='giustificazione.php'>GIUSTIFICAZIONE ASSENZE / ENTRATE</button>";
-                                }
-                                else{
-                                    echo "<div style=color:red><br>IL PULSANTE DELLE GIUSTIFICAZIONI SI ABILITERA' DOPO LE ORE ".$_SESSION["giustificazioni_ora_inizio_stringa"] ."</div>";
-                                }
-                        }
-                        else{
-                                echo "Il browser che si sta utilizzando non è aggiornato, si consiglia di usare Google Chrome per creare un permesso.";
-                        }*/
-                        ?>
-                        <!--<br><br>
-                        <button type="button" class='btn btn-primary btn-block' onclick="window.location.href='storicogiustificazione.php'">STORICO GIUSTIFICAZIONI</button>-->
-                        
+                        ?>                       
                         <br><br>
                         <button type="button" class='btn btn-info btn-block' onclick="window.location.href='cambiapassword.php'">CAMBIA PASSWORD</button>
                         <br><br> 

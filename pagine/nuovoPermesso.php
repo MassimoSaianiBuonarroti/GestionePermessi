@@ -17,6 +17,7 @@
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
 <?php
+ob_start();
 session_start();
 global $settings;
 require_once('browser.php'); 
@@ -25,7 +26,7 @@ $browser = new Browser();
 if(!isset($_SESSION["loggato"])){
     header("Location:../index.php");
 }
-
+date_default_timezone_set("Europe/Rome");
 $ora= date("H:i:s");
 
 if (!($ora<$_SESSION["permessi_ora_fine"] || $ora>$_SESSION["permessi_ora_inizio"])){
