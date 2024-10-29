@@ -61,13 +61,14 @@
                         <form name="modulo" action="#" method="GET" >
                         <?php
                             $query= "SELECT * FROM login WHERE idUtente=".$_SESSION["idutente"];
+                            //echo "<h1>".$query."</h1>";
                             
                             $result=mysqli_query($con,$query);   
                             if(mysqli_num_rows($result)>0){
                                 $row= mysqli_fetch_array($result);
                                 $nomegenitore= $row["cognome_genitore"]." ".$row["nome_genitore"];
                             }
-                            
+                            echo "<h4>Benvenuto <b>".$nomegenitore."</b></h4>";
                             date_default_timezone_set("Europe/Rome");
                             $ora= date("H:i");
                             
