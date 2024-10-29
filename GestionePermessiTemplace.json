@@ -13,7 +13,7 @@
         "limitaOrarioPermessi": true,
         "limitaDataPermessi": true,
         "refEmail": "registroelettronico@buonarroti.tn.it",
-        "genericMessage": "I permessi potranno essere richiesti a partire dal prossimo 8 settembre 2024.",
+        "genericMessage": "I permessi vanno richiesti dalle ore 15:00 del giorno prima alle ore 09:00 del giorno stesso.",
         "credenzialiMessage": "Le credenziali saranno attive a partire dal prossimo 8 settembre 2024.",
         "credenzialiMessageMastercom": "Utilizzare le stesse credenziali del registro Mastercom",
         "imgLogo": "Buonarroti_Logo_Bianco.png",
