@@ -77,6 +77,7 @@ function confermaAnnulla(nome){
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a href="gestioneGenitori.php" class="w3-bar-item w3-button  w3-padding-large w3-white">Gestione Genitori</a>
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <form name="logout_admin" action="#" method="POST">
         <button class="w3-bar-item w3-button  w3-padding-large w3-white" type='submit' name='logoutadmin'>LOGOUT</button>
@@ -104,8 +105,9 @@ function confermaAnnulla(nome){
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
-    <!-- <a href="pannello_controllo.php" class="w3-bar-item w3-button w3-padding-large">PANNELLO DI CONTROLLO</a> -->
+  <a href="gestioneGenitori.php" class="w3-bar-item w3-button w3-padding-large">Gestione Genitori</a>
+  <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+  <!-- <a href="pannello_controllo.php" class="w3-bar-item w3-button w3-padding-large">PANNELLO DI CONTROLLO</a> -->
     <!--<a href="nuovoPermesso.php" class="w3-bar-item w3-button w3-padding-large">Nuovo Permesso</a>
     <a href="storico.php" class="w3-bar-item w3-button w3-padding-large">Storico</a>
     <a href="cambiapassword.php" class="w3-bar-item w3-button w3-padding-large">Cambia Password</a>-->
