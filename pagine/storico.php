@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+ob_start();
 session_start();
 require_once('browser.php');
 require_once 'load_settings.php';
@@ -36,6 +36,7 @@ else{
 }
 
 ?>
+<!DOCTYPE html>
 <html>
 <title>Storico Permessi</title>
 <meta charset="UTF-8">

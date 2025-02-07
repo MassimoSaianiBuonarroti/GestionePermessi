@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 /**
  *  This file is part of Gestione Permessi
  *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
@@ -14,10 +14,20 @@ session_start();
 if(!isset($_SESSION["loggato"])){
     header("Location:../index.php");
 }
+else
 if($_SESSION["loggato"]== "no"){
     header("Location:../index.php");
 }
-
+if (isset($_SESSION["ruolo"]))
+{
+    $ruolo =  $_SESSION["ruolo"];
+    if ($ruolo != "admin")
+      header("Location:../index.php");
+}
+else
+{
+    header("Location:../index.php");
+}
 ?>
 
 <!DOCTYPE html>

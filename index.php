@@ -1,5 +1,5 @@
 <?php
-
+  ob_start();
 /**
  *  This file is part of Gestione Permessi
  *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
@@ -27,15 +27,16 @@
 
   <?php
   session_start();
+
   if (isset($_SESSION["loggato"]) && $_SESSION["loggato"] == "si") 
   {
     if ($_SESSION["ruolo"] == "admin")
     {
-      header("Location:pagine/frontoffice.php");
+      header("Location: pagine/frontoffice.php");
     } 
     else 
     {
-      header("Location: pagine/indexLogout.php");
+       header("Location: pagine/indexLogout.php");
     }
   }
   else 

@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 /**
  *  This file is part of Gestione Permessi
  *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
@@ -79,11 +79,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => "",
                     CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 30,
+                    CURLOPT_TIMEOUT => 60,
                     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST => "GET",
                     CURLOPT_POSTFIELDS => "",
-                    CURLOPT_COOKIE => "PHPSESSID=b8gdo8db857lfrjrdnu8pmtt16",
+                    CURLOPT_COOKIE => "PHPSESSID=mt1v9c3mlm0anq5511bue865k5",
                     CURLOPT_HTTPHEADER => [
                         "User-Agent: insomnia/9.2.0"
                     ],
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                             header("Location: indexLogin.php?err=errmastercom");
                     } 
                     else 
-                    {     
+                    {   
                         $array = json_decode($response, true);
                         if ($array["auth"] == false)
                         // autenticazione KO

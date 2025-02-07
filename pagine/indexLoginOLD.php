@@ -1,5 +1,5 @@
 <?php
-ob_start();
+
 /**
  *  This file is part of Gestione Permessi
  *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>

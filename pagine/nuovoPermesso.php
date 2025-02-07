@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 /**
  *  This file is part of Gestione Permessi
  *  @author     Massimo Saiani <massimo.saiani@buonarroti.tn.it>
@@ -30,6 +30,20 @@ require_once '../version.php';
 if (!isset($_SESSION["loggato"])) {
     header("Location:../index.php");
 }
+else
+if ($_SESSION["loggato"] != "si")
+{
+    header("Location:../index.php");
+}
+
+if ($__settings->config->limitaOrarioPermessi == true) {
+    date_default_timezone_set("Europe/Rome");
+    $ora= date("H:i");
+    if (($ora > $_SESSION["permessi_ora_fine"]) && ($ora < $_SESSION["permessi_ora_inizio"])) {
+        header("Location:../index.php");
+    }
+}
+
 date_default_timezone_set("Europe/Rome");
 $ora = date("H:i:s");
 

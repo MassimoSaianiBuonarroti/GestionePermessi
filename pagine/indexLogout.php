@@ -1,6 +1,5 @@
-<html>
-<head>
-    <?php
+<?php
+   ob_start();
     session_start();
 
     require_once 'load_settings.php';
@@ -21,7 +20,9 @@
     }
        
     ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- CSS only -->
     <link href="../css/login_new.css" rel="stylesheet"  >
