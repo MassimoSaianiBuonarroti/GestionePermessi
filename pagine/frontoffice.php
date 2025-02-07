@@ -11,21 +11,7 @@ session_start();
 
 // se non è un utente loggato manda alla pagina iniziale
 
-if(!isset($_SESSION["loggato"])){
-    header("Location:../index.php");
-}
-else
-if($_SESSION["loggato"]== "no"){
-    header("Location:../index.php");
-}
-if (isset($_SESSION["ruolo"]))
-{
-    $ruolo =  $_SESSION["ruolo"];
-    if ($ruolo != "admin")
-      header("Location:../index.php");
-}
-else
-{
+if(!isset($_SESSION["loggato"]) or $_SESSION["loggato"] == "no" or $_SESSION["ruolo"] != "admin"){
     header("Location:../index.php");
 }
 ?>

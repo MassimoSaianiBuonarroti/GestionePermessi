@@ -6,18 +6,6 @@ ob_start();
  *  @copyright  (C) 2024 Massimo Saiani
  *  @license    GPL-3.0+ <https://www.gnu.org/licenses/gpl-3.0.html>
  */
-
-?>
-
-<!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link href="../css/login_new.css" rel="stylesheet">
-<!--<script src="../js/bootstrap.min.js"></script>-->
-<script src="../js/jquery-1.11.1.min.js"></script>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-<?php
-
 session_start();
 global $settings;
 require_once('browser.php');
@@ -29,31 +17,50 @@ require_once '../version.php';
 
 if (!isset($_SESSION["loggato"])) {
     header("Location:../index.php");
-}
-else
-if ($_SESSION["loggato"] != "si")
-{
+    exit();
+} else
+    if ($_SESSION["loggato"] != "si") {
+        header("Location:../index.php");
+        exit();
+    }
+
+if (isset($_SESSION["ruolo"])) {
+    $ruolo = $_SESSION["ruolo"];
+    if ($ruolo != "genitore")
+    {
+        header("Location:../index.php");
+        exit();
+    }
+} else {
     header("Location:../index.php");
+    exit();
 }
 
 if ($__settings->config->limitaOrarioPermessi == true) {
     date_default_timezone_set("Europe/Rome");
-    $ora= date("H:i");
+    $ora = date("H:i");
     if (($ora > $_SESSION["permessi_ora_fine"]) && ($ora < $_SESSION["permessi_ora_inizio"])) {
         header("Location:../index.php");
+        exit();
     }
 }
-
-date_default_timezone_set("Europe/Rome");
-$ora = date("H:i:s");
 
 // if (!($ora<$__settings->config->permessiOraFine) || ($ora>$__settings->config->permessiOraInizio)){
 //     header("Location:../index.php");   
 // }
 if ($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == Browser::BROWSER_SAFARI) {
     header("Location:../index.php");
+    exit();
 }
 ?>
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="../css/login_new.css" rel="stylesheet">
+<!--<script src="../js/bootstrap.min.js"></script>-->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
 <html>
 <title>Permessi di uscita</title>
 <meta charset="UTF-8">
@@ -128,15 +135,19 @@ if ($browser->getBrowser() == Browser::BROWSER_IE || $browser->getBrowser() == B
     <div class="w3-row-padding w3-padding-64 w3-container">
         <?php
         require_once 'accessoDatabase.php';
-        $con = accesso();
-        $passw = md5($_SESSION["password"]);
-        $query = "SELECT * FROM login WHERE nomeutente=" . $_SESSION["nomeutente"];
-
-        $result = mysqli_query($con, $query);
-        //echo mysqli_num_rows($result);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            $nomegenitore = $row["cognome_genitore"] . " " . $row["nome_genitore"];
+        if (isset($_SESSION["ruolo"])) {
+            $ruolo = $_SESSION["ruolo"];
+            if ($ruolo == "genitore") {
+                $con = accesso();
+                $passw = md5($_SESSION["password"]);
+                $query = "SELECT * FROM login WHERE nomeutente=" . $_SESSION["nomeutente"];
+                $result = mysqli_query($con, $query);
+                //echo mysqli_num_rows($result);
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_array($result);
+                    $nomegenitore = $row["cognome_genitore"] . " " . $row["nome_genitore"];
+                }
+            }
         }
         ?>
         <form name="nuovoPermesso" action="#" method="POST">
